@@ -1180,8 +1180,8 @@ function initCaptureMode() {
 
             let finalImg = msg.image;
             const currentItem = captureSequence[captureStepIndex];
-            // Mirror Slaps (13, 14) due to scanner reversing them
-            if (currentItem && ['13', '14'].includes(currentItem.id)) {
+            // Mirror Slaps (13, 14, 15) due to scanner reversing them
+            if (currentItem && ['13', '14', '15'].includes(currentItem.id)) {
                 logToConsole("Correcting mirrored slap...");
                 finalImg = await mirrorBase64(msg.image);
             }
@@ -1529,8 +1529,7 @@ async function finalizeCapture() {
             // Create mock boxes for 1-10, 11-14
             boxes = captureSequence.map(item => ({ id: item.id, fp_number: parseInt(item.id), x: 0, y: 0, w: 0, h: 0 }));
         } else {
-            // Fallback / Default to Rolled if somehow here
-            selectedGenMode = 'rolled';
+            selectedGenMode = 'atf';
             boxes = captureSequence.map(item => ({ id: item.id, fp_number: parseInt(item.id), x: 0, y: 0, w: 0, h: 0 }));
         }
 

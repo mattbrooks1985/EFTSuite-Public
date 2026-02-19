@@ -82,10 +82,14 @@ class Finger:
         sx, sy = int(self.sx), int(self.sy)
         sw, sh = int(self.sw), int(self.sh)
         
-        self.x1 = str(sx)               # Left
-        self.x2 = str(sx + sw)          # Right
-        self.y1 = str(sy)               # Top
-        self.y2 = str(sy + sh)          # Bottom 
+        # 'sx' and 'sy' are the center coordinates of the segment
+        left = max(0, int(sx - (sw / 2)))
+        top = max(0, int(sy - (sh / 2)))
+        
+        self.x1 = str(left)             # Left
+        self.x2 = str(left + sw)        # Right
+        self.y1 = str(top)              # Top
+        self.y2 = str(top + sh)         # Bottom  
 
     def segmentQuality(self):
         """
@@ -114,7 +118,12 @@ class Finger:
 
     def getPosString(self):
         """Returns the formatted position string for Type-14 record."""
-        return self.n + chr(US_CHAR) + self.x1 + chr(US_CHAR) + self.x2 + chr(US_CHAR) + self.y1 + chr(US_CHAR) + self.y2
+        n_val = self.n
+        if self.n == "11":
+            n_val = "1"
+        elif self.n == "12":
+            n_val = "6"
+        return n_val + chr(US_CHAR) + self.x1 + chr(US_CHAR) + self.x2 + chr(US_CHAR) + self.y1 + chr(US_CHAR) + self.y2
 
 
 class Fingerprint:
