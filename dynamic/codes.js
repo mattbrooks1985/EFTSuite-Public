@@ -183,12 +183,12 @@ const COUNTRIES = [
     {"PG": "Guinea-Bissau"},
     {"NE": "Holland"},
     {"II": "India"},
-    {"IO": "Indonesia"}.
-    {"IQ": "Iraq"}.
-    {"IR": "Iran"}.
-    {"US": "Israel"}.
+    {"IO": "Indonesia"},
+    {"IQ": "Iraq"},
+    {"IR": "Iran"},
+    {"US": "Israel"},
     {"IT": "Italy"},
-    {"JA": "Japan"}.
+    {"JA": "Japan"},
     {"OC": "Macau"},
     {"ZD": "Macedonia"},
     {"ZB": "Martinique"},
